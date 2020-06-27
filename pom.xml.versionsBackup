@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.github.fastcube.factory.tibco</groupId>
+	<groupId>io.github.fastcube.factory.tibco</groupId>
 	<artifactId>fc-tibco-factory</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
@@ -16,7 +16,7 @@
 		<!-- Velocity-proof properties -->
 		<factoryName>FC TIBCO Factory</factoryName>
 		<factoryNameHighlight><![CDATA[<i><span class="color-highlight">FC</span> TIBCO Factory</i>]]></factoryNameHighlight>
-		<factoryGroupId>com.github.fastcube.factory.tibco</factoryGroupId>
+		<factoryGroupId>io.github.fastcube.factory.tibco</factoryGroupId>
 		<factoryArtifactId>fc-tibco-factory</factoryArtifactId>
 		<factoryVersion>${releaseVersion}</factoryVersion>
 		<notaBene><![CDATA[<b>NB:</b>]]></notaBene>
@@ -509,7 +509,7 @@
 				<version>1.3.0</version>
 			</dependency>
 			<dependency>
-				<groupId>com.github.goldin</groupId>
+				<groupId>io.github.goldin</groupId>
 				<artifactId>copy-maven-plugin</artifactId>
 				<version>0.2.5</version>
 			</dependency>
@@ -619,7 +619,7 @@
 				<version>1.9.2</version>
 			</extension>
 			<extension>
-				<groupId>com.github.stephenc.wagon</groupId>
+				<groupId>io.github.stephenc.wagon</groupId>
 				<artifactId>wagon-gitsite</artifactId>
 				<version>0.5</version>
 			</extension>

@@ -46,7 +46,7 @@
 				<version>2.4</version>
 				<dependencies>
 					<dependency>
-						<groupId>com.github.fastcube.factory.tibco.bw.maven</groupId>
+						<groupId>io.github.fastcube.factory.tibco.bw.maven</groupId>
 						<artifactId>bw-maven-assemblies</artifactId>
 						<version>${bw.maven.plugin.version}</version>
 					</dependency>

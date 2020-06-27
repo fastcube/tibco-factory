@@ -26,9 +26,9 @@ $h1 Default "settings.xml" sample file
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0           http://maven.apache.org/xsd/settings-1.0.0.xsd">
 
 	<pluginGroups>
-		<pluginGroup>com.github.fastcube.factory.tibco.bw.maven</pluginGroup>
-		<pluginGroup>com.github.fastcube.factory.tibco.bw.codereview</pluginGroup>
-		<pluginGroup>com.github.fastcube.factory.tibco.bw.bwunit</pluginGroup>
+		<pluginGroup>io.github.fastcube.factory.tibco.bw.maven</pluginGroup>
+		<pluginGroup>io.github.fastcube.factory.tibco.bw.codereview</pluginGroup>
+		<pluginGroup>io.github.fastcube.factory.tibco.bw.bwunit</pluginGroup>
 	</pluginGroups>
 
 	<profiles>

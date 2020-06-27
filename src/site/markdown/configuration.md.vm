@@ -116,7 +116,7 @@ The independent <b>root POM</b> is created by a Maven archetype with the
 following command:
 
 ```bash
-mvn archetype:generate -DarchetypeGroupId=com.github.fastcube.factory.tibco \
+mvn archetype:generate -DarchetypeGroupId=io.github.fastcube.factory.tibco \
                        -DarchetypeArtifactId=archetype-default-pom \
                        -DarchetypeVersion=${project.version} \
                        -DgroupId=com.company.project \

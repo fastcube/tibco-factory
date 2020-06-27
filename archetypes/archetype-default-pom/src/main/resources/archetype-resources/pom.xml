@@ -87,7 +87,7 @@
 
 		<!-- Packaging & Deployment -->
 		<project.package.directory>${project.build.directory}/package</project.package.directory>
-			<generate.pom.parent.groupId>com.github.fastcube.factory.tibco</generate.pom.parent.groupId>
+			<generate.pom.parent.groupId>io.github.fastcube.factory.tibco</generate.pom.parent.groupId>
 			<generate.pom.parent.artifactId>fc-tibco-factory</generate.pom.parent.artifactId>
 			<generate.pom.parent.version>${releaseVersion}</generate.pom.parent.version>
 			<generate.pom.parent.suffix>deploy</generate.pom.parent.suffix>
@@ -126,7 +126,7 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>com.github.fastcube.factory.tibco.bw.maven</groupId>
+					<groupId>io.github.fastcube.factory.tibco.bw.maven</groupId>
 					<artifactId>bw-maven-plugin</artifactId>
 					<version>${bw.maven.plugin.version}</version>
 				</plugin>
@@ -134,7 +134,7 @@
 		</pluginManagement>
 		<plugins>
 			<plugin>
-				<groupId>com.github.fastcube.factory.tibco.bw.maven</groupId>
+				<groupId>io.github.fastcube.factory.tibco.bw.maven</groupId>
 				<artifactId>bw-maven-plugin</artifactId>
 				<extensions>true</extensions>
 			</plugin>

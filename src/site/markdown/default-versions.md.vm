@@ -23,7 +23,7 @@ as of ${factoryNameHighlight} __${factoryVersion}__.
 
 | Name                                                                 | Version                    | Maven coordinates                                                                        |
 |----------------------------------------------------------------------|----------------------------|------------------------------------------------------------------------------------------|
-| [${factoryName}](./index.html)                                       | ${factoryVersion}          | com.github.fastcube.factory.tibco:${project.artifactId}:${factoryVersion}                     |
-| &nbsp;&nbsp; [bwMaven](./bw-maven-plugin/index.html)                 | ${bwMavenPluginVersion}    | com.github.fastcube.factory.tibco.bw.maven:bw-maven-plugin:${bwMavenPluginVersion}            |
-| &nbsp;&nbsp; [FC Code Review](./code-review-plugin/index.html)       | ${codeReviewPluginVersion} | com.github.fastcube.factory.tibco.bw.codereview:code-review-plugin:${codeReviewPluginVersion} |
-| &nbsp;&nbsp; [bwUnit](./bwunit-plugin/index.html)                    | ${bwUnitPluginVersion}     | com.github.fastcube.factory.tibco.bw.bwunit:bwunit-plugin:${bwUnitPluginVersion}              |
+| [${factoryName}](./index.html)                                       | ${factoryVersion}          | io.github.fastcube.factory.tibco:${project.artifactId}:${factoryVersion}                     |
+| &nbsp;&nbsp; [bwMaven](./bw-maven-plugin/index.html)                 | ${bwMavenPluginVersion}    | io.github.fastcube.factory.tibco.bw.maven:bw-maven-plugin:${bwMavenPluginVersion}            |
+| &nbsp;&nbsp; [FC Code Review](./code-review-plugin/index.html)       | ${codeReviewPluginVersion} | io.github.fastcube.factory.tibco.bw.codereview:code-review-plugin:${codeReviewPluginVersion} |
+| &nbsp;&nbsp; [bwUnit](./bwunit-plugin/index.html)                    | ${bwUnitPluginVersion}     | io.github.fastcube.factory.tibco.bw.bwunit:bwunit-plugin:${bwUnitPluginVersion}              |

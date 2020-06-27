@@ -3,7 +3,7 @@
   <pluginExecutions>
     <pluginExecution>
       <pluginExecutionFilter>
-        <groupId>com.github.fastcube.factory.tibco.bw.maven</groupId>
+        <groupId>io.github.fastcube.factory.tibco.bw.maven</groupId>
         <artifactId>bw-maven-plugin</artifactId>
         <versionRange>[1.0.0,)</versionRange>
         <goals>
@@ -26,7 +26,7 @@
     </pluginExecution>
     <pluginExecution>
       <pluginExecutionFilter>
-        <groupId>com.github.fastcube.factory.tibco.bw.codereview</groupId>
+        <groupId>io.github.fastcube.factory.tibco.bw.codereview</groupId>
         <artifactId>code-review-plugin</artifactId>
         <versionRange>[1.0.0,)</versionRange>
         <goals>
