@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.github.fastcube.factory.tibco</groupId>
+		<artifactId>archetypes</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>archetype-default-workspace</artifactId>
+	<packaging>maven-archetype</packaging>
+	
+	<name>FC TIBCO Factory - Archetypes - Workspace</name>
+	<description>
+		This archetype creates the default workspace (with BusinessWorks projects, Java projects &amp; delivery project).
+	</description>
+
+</project>

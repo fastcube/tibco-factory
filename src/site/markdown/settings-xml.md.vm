@@ -1,0 +1,73 @@
+#*
+ * (C) Copyright 2019-2020 Fastcube SAS
+ * (http://www.fastcube.fr/) and others.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *#
+#set($h1 = '#')
+#set($h2 = '##')
+#set($h3 = '###')
+#set($h4 = '####')
+
+$h1 Default "settings.xml" sample file
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0           http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+	<pluginGroups>
+		<pluginGroup>com.github.fastcube.factory.tibco.bw.maven</pluginGroup>
+		<pluginGroup>com.github.fastcube.factory.tibco.bw.codereview</pluginGroup>
+		<pluginGroup>com.github.fastcube.factory.tibco.bw.bwunit</pluginGroup>
+	</pluginGroups>
+
+	<profiles>
+		<profile>
+			<id>tibco</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<tibco.home>C:/tibco</tibco.home>
+				<executables.extension>.exe</executables.extension>
+				<libraries.extension>.dll</libraries.extension>
+				<tibco.bw.version>5.12</tibco.bw.version>
+				<tibco.designer.version>5.9</tibco.designer.version>
+				<tibco.ems.version>6.3</tibco.ems.version>
+				<tibco.tra.version>5.9</tibco.tra.version>
+				<tibco.rv.version>8.4</tibco.rv.version>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>client</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<!-- for mavenization -->
+				<clientGroupId>com.company.project</clientGroupId>
+				<rootProjectGroupId>com.company.project</rootProjectGroupId>
+				<rootProjectArtifactId>project-root</rootProjectArtifactId>
+				<rootProjectVersion>1.0.0</rootProjectVersion>
+				<!-- domain -->
+				<tibco.domain.name>LOCAL</tibco.domain.name>
+				<tibco.domain.username>admin</tibco.domain.username>
+				<tibco.domain.password>admin</tibco.domain.password>
+			</properties>
+		</profile>
+	</profiles>
+
+</settings>
+
+```

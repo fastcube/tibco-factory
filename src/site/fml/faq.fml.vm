@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    (C) Copyright 2019-2020 Fastcube SAS
+    (http://www.fastcube.fr/) and others.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<faqs xmlns="http://maven.apache.org/FML/1.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd" title="Frequently Asked Questions" toplink="true">
+
+	<part id="configuration">
+		<title>Configuration</title>
+
+		<faq id="tibco-profile">
+			<question>
+        The plugin complains about TIBCO directories not existing.
+        How do I fix this?
+			</question>
+			<answer>
+				<p>The plugin needs to know where the TIBCO stack (TRA, BW, Designer,...)
+        is installed on the current machine.</p>
+				<p>You should create a <b>&lt;profile&gt;</b> section in your
+					<a href="./settings-xml.html">settings.xml</a> file as the one below:
+				</p>
+
+				<source>
+&lt;profile&gt;
+        &lt;id&gt;tibco&lt;/id&gt;
+        &lt;activation&gt;
+                &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+        &lt;/activation&gt;
+        &lt;properties&gt;
+                &lt;tibco.home&gt;C:/tibco&lt;/tibco.home&gt;
+                &lt;executables.extension&gt;.exe&lt;/executables.extension&gt;
+                &lt;tibco.bw.version&gt;5.9&lt;/tibco.bw.version&gt;
+                &lt;tibco.designer.version&gt;5.7&lt;/tibco.designer.version&gt;
+                &lt;tibco.ems.version&gt;6.3&lt;/tibco.ems.version&gt;
+                &lt;tibco.tra.version&gt;5.7&lt;/tibco.tra.version&gt;
+                &lt;tibco.rv.version&gt;8.3&lt;/tibco.rv.version&gt;
+        &lt;/properties&gt;
+&lt;/profile&gt;
+				</source>
+				<p>Only the <i>major.minor</i> version number is required (ex: <i>5.9</i>) because
+        the actual folders where TIBCO programs are installed only use this
+        scheme.</p>
+			</answer>
+		</faq>
+
+	</part>
+
+</faqs>
