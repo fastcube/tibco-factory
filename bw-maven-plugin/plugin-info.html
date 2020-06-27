@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Fastcube TIBCO Factory">
+    <meta name="author" content="Radwane Mabchour">
+    <title>Plugin Documentation | bwMaven plugin</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.css" rel="stylesheet">
+    <!-- Fontawesome core CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <style>
+      
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="../assets/dist/css/styles.css" rel="stylesheet">
+    <link href="../assets/theme/css/prism.css" rel="stylesheet" />
+  </head>
+  <body class="d-flex flex-column h-100">
+    <header id="header">
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">FC TIBCO Factory</a>
+          <a class="navbar-brand" href="#">/</a>
+          <a class="navbar-brand" href="index.html"><span class="text-info">bwMaven</span> plugin</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Overview <span class="sr-only">(current)</span></a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a class="dropdown-item" href="index.html">Introducation</a></li>
+                  <li><a class="dropdown-item active" href="#">Goals</a></li>
+                  <li><a class="dropdown-item" href="plugin-usage.html">Usage</a></li>
+                  <li class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="plugin-lifecycles.html">Lifecycles</a></li>
+                  <li><a class="dropdown-item" href="mavenization.html">Mavenization</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown"  href="#">Lifecycle phases</a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a class="dropdown-item" href="lifecycle-phases/development.html">Development</a></li>
+                  <li><a class="dropdown-item" href="lifecycle-phases/packaging.html">Packaging</a></li>
+                  <li><a class="dropdown-item" href="lifecycle-phases/deployment.html">Deployment</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Reports</a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li class="dropdown-submenu">
+                    <a class="dropdown-item dropdown-toggle" href="reports/project-info/project-info.html">Project Informations</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="reports/project-info/continuous-integration.html">Continuous Integration</a></li>
+                      <li><a class="dropdown-item" href="reports/project-info/dependencies.html">Dependencies</a></li>
+                      <li><a class="dropdown-item" href="reports/project-info/dependency-info.html">Dependency Information</a></li>
+                      <li><a class="dropdown-item" href="reports/project-info/distribution-management.html">Distribution Management</a></li>
+                      <li><a class="dropdown-item" href="reports/project-info/issue-tracking.html">Issue Tracking</a></li>
+                      <li><a class="dropdown-item" href="reports/project-info/project-licence.html">Project Licence</a></li>
+                      <li><a class="dropdown-item" href="reports/project-info/plugin-management.html">Plugin Management</a></li>
+                      <li><a class="dropdown-item" href="reports/project-info/project-team.html">Project Team</a></li>
+                      <li><a class="dropdown-item" href="reports/project-info/source-repository.html">Source Repository</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-submenu active">
+                    <a class="dropdown-item dropdown-toggle" href="reports/project-reports/project-reports.html">Project Reports</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item active" href="#">Plugin Documentation</a></li>
+                      <li><a class="dropdown-item" href="apidocs/index.html">JavaDocs</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4 font-weight-bold">Maven plugin for <span class="text-info">TIBCO BusinessWorks</span></h1>
+      <h5>Enable Java-like lifecycle management in TIBCO BusinessWorks</h5>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Plugin Documentation</h1>
+        <hr>
+        <p>Goals available for this plugin:</p>
+      </div>
+    </div><br>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Goal</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="doc-mojo/add-dependency-mojo.html">bw:add-dependency</a></td>
+              <td>
+                <p>This goal adds a dependency to the POMs of the defined projects list.<br>
+                Refer to <a href="doc-mojo/list-maven-projects-mojo.html">bw:list-maven-projects</a> goal for an explanation about projects lists.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/add-maven-projects-mojo.html">bw:add-maven-projects</a></td>
+              <td>
+                <p>This goal adds some mavenized projects as modules of a root POM.<br>
+                Refer to <a href="doc-mojo/list-maven-projects-mojo.html">bw:list-maven-projects</a> goal for an explanation about projects lists.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/batch-delete-bw-mojo.html">bw:batch-delete-bw</a></td>
+              <td>
+                <p>This goal deletes multiple BusinessWorks applications from a domain in batch mode.<br>
+                It is based on an export performed by the <a href="doc-mojo/batch-extract-xml-bw-mojo.html">bw:batch-extract-xml-bw</a> goal.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/batch-deploy-bw-mojo.html">bw:batch-deploy-bw</a></td>
+              <td>
+                <p>This goal deploys multiple BusinessWorks applications from a domain in batch mode.<br>
+                It is based on an export performed by the <a href="doc-mojo/batch-extract-xml-bw-mojo.html">bw:batch-extract-xml-bw</a> goal.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/batch-extract-xml-bw-mojo.html">bw:batch-extract-xml-bw</a></td>
+              <td>
+                <p>This goal performs an export of a TIBCO domain to a directory.<br>
+                  The result can be used by batch goals such as <a href="doc-mojo/batch-delete-bw-mojo.html">bw:batch-delete-bw</a>, <a href="doc-mojo/batch-deploy-bw-mojo.html">bw:batch-deploy-bw</a>, <a href="doc-mojo/batch-start-bw-mojo.html">bw:batch-start-bw</a>, <a href="doc-mojo/batch-stop-bw-mojo.html">bw:batch-stop-bw</a> or <a href="doc-mojo/batch-undeploy-bw-mojo.html">bw:batch-undeploy-bw</a>.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/batch-start-bw-mojo.html">bw:batch-start-bw</a></td>
+              <td>
+                <p>This goal starts multiple BusinessWorks applications from a domain in batch mode. <br>
+                It is based on an export performed by the <a href="doc-mojo/batch-extract-xml-bw-mojo.html">bw:batch-extract-xml-bw</a> goal.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/batch-stop-bw-mojo.html">bw:batch-stop-bw</a></td>
+              <td>
+                <p>This goal stops multiple BusinessWorks applications from a domain in batch mode.<br>
+                It is based on an export performed by the <a href="doc-mojo/batch-extract-xml-bw-mojo.html">bw:batch-extract-xml-bw</a> goal.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/batch-undeploy-bw-mojo.html">bw:batch-undeploy-bw</a></td>
+              <td>
+                <p>This goal undeploys multiple BusinessWorks applications from a domain in batch mode.<br>
+                It is based on an export performed by the <a href="doc-mojo/batch-extract-xml-bw-mojo.html">bw:batch-extract-xml-bw</a> goal.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/compile-bw-ear-mojo.html">bw:compile-bw-ear</a></td>
+              <td>
+                <p>This goal creates a TIBCO BusinessWorks Projib based on the configuration given in the project's POM. <br>
+                The most important parameters are:
+                <ul>
+                  <li><b>bw.project.library.builder :</b> the location of the Library Builder file inside the TIBCO BusinessWorks project</li>
+                  <li><b>bw.project.location :</b> the TIBCO BusinessWorks sources location relatively to the POM</li>
+                </ul>
+                Other parameters have default values set with the global values of "<a href="../useful-files/settings-xml.html">settings.xml</a>" file.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/compile-projlib-mojo.html">bw:compile-projlib</a></td>
+              <td>
+                <p>This goal creates a TIBCO BusinessWorks Projib based on the configuration given in the project's POM. <br>
+                The most important parameters are:
+                <ul>
+                  <li><b>bw.project.library.builder :</b> the location of the Library Builder file inside the TIBCO BusinessWorks project</li>
+                  <li><b>bw.project.location :</b> the TIBCO BusinessWorks sources location relatively to the POM</li>
+                </ul>
+                Other parameters have default values set with the global values of "<a href="../useful-files/settings.html">settings.xml</a>" file.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/copy-bw-dependencies-mojo.html">bw:copy-bw-dependencies</a></td>
+              <td>
+                <p>This goal copies TIBCO BusinessWorks dependencies (especially Projlibs) in a temporary folder. <br>
+                These dependencies will be used to create a unique environment (used to launch the Designer and to package an EAR).</p>
+                <p>A builtin goal from Maven is called by this goal with a custom configuration defined in the <mark>'components.xml'</mark> file from Plexus. This allows to use the builtin goal bound to a lifecycle phase without adding configuration in POMs. <br>
+                Please refer to <code>AbstractWrapperForBuiltinMojo</code> for a full explanation of the lifecycle binding of a builtin Maven plugin.</p>
+                <p><u>Original goal</u> : <b>org.apache.maven.plugins:maven-dependency-plugin:copy-dependencies</b></p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/copy-bw-sources-mojo.html">bw:copy-bw-sources</a></td>
+              <td>
+                <p>This goal copies the TIBCO BusinessWorks project sources to a temporary folder. <br>
+                These sources will be used to compile a TIBCO BusinessWorks EAR or Projlib from a fresh copy and with potential machine-generated code (for instance for Java Custom Functions).</p>
+                <p>A builtin goal from Maven is called by this goal with a custom configuration defined in the <mark>'components.xml'</mark> file from Plexus. This allows to use the builtin goal bound to a lifecycle phase without adding configuration in POMs. <br>
+                Please refer to <code>AbstractWrapperForBuiltinMojo</code> for a full explanation of the lifecycle binding of a builtin Maven plugin.</p>
+                <p><u>Original goal</u> : <b>org.apache.maven.plugins:maven-resources-plugin:copy-resources</b></p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/copy-bw-test-dependencies-mojo.html">bw:copy-bw-test-dependencies</a></td>
+              <td>
+                <p>This goal copies TIBCO BusinessWorks dependencies (especially Projlibs) of the 'test' scope in a temporary folder. <br>
+                These dependencies will be used to create a unique environment (used to launch the Designer and to launch tests).</p>
+                <p>A builtin goal from Maven is called by this goal with a custom configuration defined in the <mark>'components.xml'</mark> file from Plexus. This allows to use the builtin goal bound to a lifecycle phase without adding configuration in POMs. <br>
+                Please refer to <code>AbstractWrapperForBuiltinMojo</code> for a full explanation of the lifecycle binding of a builtin Maven plugin.</p>
+                <p><u>Original goal</u> : <b>org.apache.maven.plugins:maven-dependency-plugin:copy-dependencies</b></p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/copy-bw-test-sources-mojo.html">bw:copy-bw-test-sources</a></td>
+              <td>
+                <p>This goal copies the TIBCO BusinessWorks project sources to a temporary folder for the 'test' scope. <br>
+                These sources will be used to run the tests (see <a href="doc-mojo/bw-test-mojo.html">bw:bw-test</a>).</p>
+                <p>A builtin goal from Maven is called by this goal with a custom configuration defined in the <mark>'components.xml'</mark> file from Plexus. This allows to use the builtin goal bound to a lifecycle phase without adding configuration in POMs. <br>
+                Please refer to <code>AbstractWrapperForBuiltinMojo</code> for a full explanation of the lifecycle binding of a builtin Maven plugin.</p>
+                <p><u>Original goal</u> : <b>org.apache.maven.plugins:maven-resources-plugin:copy-resources</b></p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/delete-bw-mojo.html">bw:delete-bw</a></td>
+              <td>
+                <p>This goal deletes a TIBCO BusinessWorks application from a TIBCO domain. <br>
+                The application will be undeployed before deleted.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/deploy-bw-mojo.html">bw:deploy-bw</a></td>
+              <td>
+                <p>This goal deploys a TIBCO BusinessWorks application to a TIBCO domain.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/extract-xml-bw-mojo.html">bw:extract-xml-bw</a></td>
+              <td>
+                <p>This goal extracts the XML Deployment Descriptor from a TIBCO BusinessWorks application deployed on a TIBCO domain.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/extract-xml-from-ear-mojo.html">bw:extract-xml-from-ear</a></td>
+              <td>
+                <p>This goal extracts the XML Deployment Descriptor from a TIBCO BusinessWorks EAR.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/generate-deployment-pom-mojo.html">bw:generate-deployment-pom</a></td>
+              <td>
+                <p>This goal creates a deployment POM with "<a href="plugin-lifecycles.html#deployment">bw-ear-deploy</a>" packaging. <br>
+                This POM will be used at deployment time. It depends on the parent deployment POM generated by <a href="doc-mojo/generate-deployment-root-pom-mojo.html">bw:generate-deployment-root-pom goal</a>.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/generate-deployment-root-pom-mojo.html">bw:generate-deployment-root-pom</a></td>
+              <td>
+                <p>This goal creates a POM with "<a href="plugin-lifecycles.html#deployment">bw-ear-deploy</a>" packaging. <br>
+                This POM will be used at deployment time.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/generate-doc-apt-mojo.html">bw:generate-doc-apt</a></td>
+              <td>
+                <p>This goal generates an APT documentation file from TIBCO BusinessWorks source files.
+              </td>
+            </tr>
+            <tr>
+              <td><a href="doc-mojo/generate-doc-xml-mojo.html">bw:generate-doc-xml</a></td>
+              <td>
+                <p>This goal generates an XML documentation file from TIBCO BusinessWorks source files.<br>
+                The "generate-doc-xml" goal is used to generate XML files.</p></p>
+              </td>
+            </tr>
+            <tr> 
+              <td><a href="doc-mojo/generate-properties-from-xml-mojo.html">bw:generate-properties-from-xml</a></td> 
+              <td><p>This goal uses the XML Deployment Descriptor extracted from a TIBCO BusinessWorks EAR (see <a href="doc-mojo/extract-xml-from-ear-mojo.html">bw:extract-xml-from-ear</a>) or from a TIBCO BusinessWorks application (see <a href="doc-mojo/extract-xml-from-domain-mojo.html">bw:extract-xml-from-domain</a>) to generate properties files.</p> <p>The result of this generation will be two properties files:</p> 
+               <ul> 
+                <li>one for Global Variables (application level)</li> 
+                <li>one for Services (= Process Archives, Bindings, Processes...) defined in the application</li> 
+               </ul>
+              </td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/generate-standalone-deployment-pom-mojo.html">bw:generate-standalone-deployment-pom</a></td> 
+              <td><p>This goal creates a standalone deployment POM with &quot;<a href="plugin-lifecycles.html#deployment">bw-ear-deploy</a>&quot; packaging.<br /> This POM will be used at deployment time and does not depend on any other POM.</p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/generate-xml-from-properties-mojo.html">bw:generate-xml-from-properties</a></td> 
+              <td><p>This goal recreates an XML Deployment Descriptor file from flat properties files generated by <a href="doc-mojo/generate-properties-from-xml-mojo.html">bw:generate-properties-from-xml</a>.<br /> Any manual modification performed on the properties files will be integrated in the final XML file.</p> <p>A JAXB implementation of the TIBCO ApplicationManagement schema (namespace = &quot;http://www.tibco.com/xmlns/ApplicationManagement&quot;) will be used.<br /> Refer to <code>ApplicationManagement</code> class for details.</p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/help-mojo.html">bw:help</a></td> 
+              <td>Display help information on bw-maven-plugin.<br /> Call <code>mvn bw:help -Ddetail=true -Dgoal=&lt;goal-name&gt;</code> to display parameter details.</td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/include-dependencies-in-bw-ear-mojo.html">bw:include-dependencies-in-bw-ear</a></td> 
+              <td><p>This goal includes the JAR dependencies of the runtime scope inside the &quot;lib.zip&quot; of the TIBCO BusinessWorks EAR.<br /> It allows to load seamlessly the transitive dependencies of JARs of the TIBCO BusinessWorks project and avoid the ClassNotFoundException issues when the application is deployed on a TIBCO domain.</p> <p>This step can be ignored by setting <i>includeTransitiveJARsInEAR</i> to <i>false</i>.</p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/initialize-mojo.html">bw:initialize</a></td> 
+              <td><p>This goal will initialize additional properties to use in next goals. It is the first goal called by the <b>bw-ear</b> lifecycle in the <b>initialize</b> phase.</p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/it-deploy-bw-mojo.html">bw:it-deploy-bw</a></td> 
+              <td><p>This goal deploys the built EAR to a TIBCO domain, to prepare the execution of Integration Tests.</p> <p>A builtin goal from Maven is called by this goal with a custom configuration defined in the 'components.xml' file from Plexus. This allows to use the builtin goal bound to a lifecycle phase without adding configuration in POMs.<br /> Please refer to <code>AbstractWrapperForBuiltinMojo</code> for a full explanation of the lifecycle binding of a builtin Maven plugin.</p> <p><u>Original goal</u> : <b>org.apache.maven.plugins:maven-invoker-plugin:run</b></p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/kill-bw-mojo.html">bw:kill-bw</a></td> 
+              <td><p>This goal kills a TIBCO BusinessWorks application deployed on a TIBCO domain.</p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/launch-designer-mojo.html">bw:launch-designer</a></td> 
+              <td><p>This goal launches a TIBCO Designer with exactly the same environment that will be used to compile the TIBCO BusinessWorks EAR from the TIBCO BusinessWorks project sources (with the <a href="doc-mojo/compile-bw-ear-mojo.html">compile-bw-ear</a> goal in the <a href="plugin-lifecycles.html#ear">compile phase</a>).</p> <p>This is made possible by inheriting from <code>AbstractBWMojo</code> class.</p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/list-bw-projects-mojo.html">bw:list-bw-projects</a></td> 
+              <td><p>This goal lists all the existing TIBCO BusinessWorks projects found in a specified folder and nested subfolders.<br /> The mandatory 'vcrepo.dat' file will be used as a search criteria.</p> <p>Once the list of projects is ready, it is possible to use children goals such as <a href="doc-mojo/mavenize-bw-projects-mojo.html">bw:mavenize-bw-projects</a> with the same parameters.</p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/list-maven-projects-mojo.html">bw:list-maven-projects</a></td> 
+              <td><p>This goal lists all the existing projects (with a POM.xml file) found in a specified folder and nested subfolders.<br /> The mandatory 'pom.xml' file will be used as a search criteria.</p> <p>Once the list of projects is ready, it is possible to use children goals such as <a href="doc-mojo/add-dependency-mojo.html">bw:add-dependency</a> with the same parameters.</p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/mavenize-bw-projects-mojo.html">bw:mavenize-bw-projects</a></td> 
+              <td><p>This goal &quot;mavenizes&quot; a list of existing TIBCO BusinessWorks projects.<br /> The Mavenizer is the default &quot;Mavenizer Archetype&quot; (archetype-bw-mavenizer).<br /> </p> <p>Refer to <a href="doc-mojo/list-bw-projects-mojo.html">bw:list-bw-projects</a> goal for an explanation about projects lists.</p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/merge-properties-mojo.html">bw:merge-properties</a></td> 
+              <td><p>This goal will merge the reference and common properties into the working properties files (usually the ones in &quot;target/package&quot;).</p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/remove-dependency-mojo.html">bw:remove-dependency</a></td> 
+              <td><p>This goal removes a dependency from the POMs of the defined projects list.</p> <p>Refer to <a href="doc-mojo/list-maven-projects-mojo.html">bw:list-maven-projects</a> goal for an explanation about projects lists.</p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/remove-maven-projects-mojo.html">bw:remove-maven-projects</a></td> 
+              <td><p>This goal removes some mavenized projects as modules of a root POM.<br /> Refer to <a href="doc-mojo/list-maven-projects-mojo.html">bw:list-maven-projects</a> goal for an explanation about projects lists.</p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/resolve-bw-dependencies-mojo.html">bw:resolve-bw-dependencies</a></td> 
+              <td><p>This goal resolves TIBCO BusinessWorks dependencies (especially Projlibs) defined in the POM of the project.<br /> The resolution is transitive and follows the Maven standard.</p> <p>These dependencies are then copied by <a href="doc-mojo/copy-bw-dependencies-mojo.html">copy-bw-dependencies</a>.</p> <p>A builtin goal from Maven is called by this goal with a custom configuration defined in the 'components.xml' file from Plexus. This allows to use the builtin goal bound to a lifecycle phase without adding configuration in POMs.<br /> Please refer to <code>AbstractWrapperForBuiltinMojo</code> for a full explanation of the lifecycle binding of a builtin Maven plugin.</p> <p><u>Original goal</u> : <b>org.apache.maven.plugins:maven-dependency-plugin:list</b></p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/resolve-bw-test-dependencies-mojo.html">bw:resolve-bw-test-dependencies</a></td> 
+              <td><p>This goal resolves TIBCO BusinessWorks dependencies (especially Projlibs) defined in the POM of the project.<br /> The resolution is transitive and follows the Maven standard and uses the 'test' scope.</p> <p>These dependencies are then copied by <a href="doc-mojo/copy-bw-test-dependencies-mojo.html">copy-bw-test-dependencies</a>.</p> <p>A builtin goal from Maven is called by this goal with a custom configuration defined in the 'components.xml' file from Plexus. This allows to use the builtin goal bound to a lifecycle phase without adding configuration in POMs.<br /> Please refer to <code>AbstractWrapperForBuiltinMojo</code> for a full explanation of the lifecycle binding of a builtin Maven plugin.</p> <p><u>Original goal</u> : <b>org.apache.maven.plugins:maven-dependency-plugin:list</b></p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/start-bw-mojo.html">bw:start-bw</a></td> 
+              <td><p>This goal starts a TIBCO BusinessWorks application deployed on a TIBCO domain.</p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/stop-bw-mojo.html">bw:stop-bw</a></td> 
+              <td><p>This goal stops a TIBCO BusinessWorks application deployed on a TIBCO domain.</p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/undeploy-bw-mojo.html">bw:undeploy-bw</a></td> 
+              <td><p>This goal undeploys a TIBCO BusinessWorks application from a TIBCO domain.</p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/unmavenize-bw-projects-mojo.html">bw:unmavenize-bw-projects</a></td> 
+              <td><p>This goal &quot;unmavenizes&quot; a list of mavenized TIBCO BusinessWorks projects by simply removing the POMs of the projects.</p> <p>Refer to <a href="doc-mojo/list-maven-projects-mojo.html">bw:list-maven-projects</a> goal for an explanation about projects lists.</p></td> 
+             </tr> 
+             <tr> 
+              <td><a href="doc-mojo/update-alias-lib-mojo.html">bw:update-alias-lib</a></td> 
+              <td><p>This goal modifies the &quot;.aliaslib&quot; files of the TIBCO BusinessWorks project sources to include transitive JARs dependencies.</p> <p>This step can be ignored by setting <i>includeTransitiveJARsInEAR</i> to <i>false</i>.</p></td> 
+             </tr> 
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>System Requirements</h3>
+        <p>The following specifies the minimum requirements to run this Maven plugin:</p>
+        <table class="table table-striped table-hover">
+          <tbody>
+            <tr> 
+              <td>Maven</td> 
+              <td>2.0</td> 
+            </tr> 
+            <tr> 
+              <td>JDK</td> 
+              <td>1.6</td> 
+            </tr> 
+            <tr> 
+              <td>Memory</td> 
+              <td>No minimum requirement.</td> 
+            </tr> 
+            <tr> 
+              <td>Disk Space</td> 
+              <td>No minimum requirement.</td> 
+            </tr> 
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Usage</h3>
+        <p>You should specify the version in your project's plugin configuration:</p>
+<pre><code class="language-xml">&lt;project&gt;
+  ...
+  &lt;build&gt;
+    &lt;!-- To define the plugin version in your parent POM --&gt;
+    &lt;pluginManagement&gt;
+      &lt;plugins&gt;
+        &lt;plugin&gt;
+          &lt;groupId&gt;com.github.fastcube.factory.tibco.bw.maven&lt;/groupId&gt;
+          &lt;artifactId&gt;bw-maven-plugin&lt;/artifactId&gt;
+          &lt;version&gt;1.0.0&lt;/version&gt;
+        &lt;/plugin&gt;
+        ...
+      &lt;/plugins&gt;
+    &lt;/pluginManagement&gt;
+    &lt;!-- To use the plugin goals in your POM or parent POM --&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;com.github.fastcube.factory.tibco.bw.maven&lt;/groupId&gt;
+        &lt;artifactId&gt;bw-maven-plugin&lt;/artifactId&gt;
+        &lt;version&gt;1.0.0&lt;/version&gt;
+      &lt;/plugin&gt;
+      ...
+    &lt;/plugins&gt;
+  &lt;/build&gt;
+  ...
+&lt;/project&gt;</code></pre>
+        <p>For more information, see <a class="externalLink" href="http://maven.apache.org/guides/mini/guide-configuring-plugins.html">&quot;Guide to Configuring Plug-ins&quot;</a></p>
+      </div>
+    </div>
+  </div><br>
+
+  <footer class="jumbotron">
+    <div class="container">
+      <div class="row clearfix small">
+        <div class="col-sm-3">
+          <h6>OVERVIEW</h6>
+          <div class="nav flex-column nav-pills">
+            <a class="nav-link" href="index.html">Introduction</a>
+            <a class="nav-link active" href="#">Goals</a>
+            <a class="nav-link" href="plugin-usage.html">Usage</a><br />
+            <a class="nav-link" href="plugin-lifecycles.html">Lifecycles</a>
+            <a class="nav-link" href="mavenization.html">Mavenization</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <h6>LIFECYCLE PHASES</h6>
+          <div class="nav flex-column nav-pills">
+            <a class="nav-link" href="lifecycle-phases/development.html">Development</a>
+            <a class="nav-link" href="lifecycle-phases/packaging.html">Packaging</a>
+            <a class="nav-link" href="lifecycle-phases/deployment.html">Deployment</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <h6>REPORTS</h6>
+          <div class="nav flex-column nav-pills">
+            <a class="nav-link" href="reports/project-info/project-info.html">Project Informations <i class="fas fa-caret-right"></i></a>
+            <a class="nav-link" href="reports/project-reports/project-reports.html">Project Reports <i class="fas fa-caret-down"></i></a>
+            <a class="nav-link active" href="#">&nbsp;&nbsp;&nbsp;&nbsp;Plugin Documentation</a>
+            <a class="nav-link" href="#">&nbsp;&nbsp;&nbsp;&nbsp;JavaDocs</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <blockquote class="custom-blockquote">
+            <p><i>bwMaven</i> (part of the <i>FC TIBCO Factory</i>) is a lifecycle management tool for TIBCO BusinessWorks based on <a href="http://maven.apache.org/">Maven</a></p>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span class="text-muted">Copyright &copy; 2020 Fastcube. All Rights Reserved.</span>
+      <div class="float-right">
+        <a href="#header">back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/theme/js/prism.js"></script>
+
+  <script src="../assets/dist/js/jquery-3.5.1.min.js"></script>
+  <!-- <script src="assets/dist/js/popper.min.js"></script> -->
+  <script src="../assets/dist/js/bootstrap.bundle.js"></script>
+</html>

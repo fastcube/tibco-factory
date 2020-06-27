@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="fr">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/**<a name="line.1"></a>
+<span class="sourceLineNo">002</span> * (C) Copyright 2019-2020 Fastcube SAS<a name="line.2"></a>
+<span class="sourceLineNo">003</span> * (http://www.fastcube.fr/) and others.<a name="line.3"></a>
+<span class="sourceLineNo">004</span> *<a name="line.4"></a>
+<span class="sourceLineNo">005</span> * Licensed under the Apache License, Version 2.0 (the "License");<a name="line.5"></a>
+<span class="sourceLineNo">006</span> * you may not use this file except in compliance with the License.<a name="line.6"></a>
+<span class="sourceLineNo">007</span> * You may obtain a copy of the License at<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *     http://www.apache.org/licenses/LICENSE-2.0<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *<a name="line.10"></a>
+<span class="sourceLineNo">011</span> * Unless required by applicable law or agreed to in writing, software<a name="line.11"></a>
+<span class="sourceLineNo">012</span> * distributed under the License is distributed on an "AS IS" BASIS,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<a name="line.13"></a>
+<span class="sourceLineNo">014</span> * See the License for the specific language governing permissions and<a name="line.14"></a>
+<span class="sourceLineNo">015</span> * limitations under the License.<a name="line.15"></a>
+<span class="sourceLineNo">016</span> */<a name="line.16"></a>
+<span class="sourceLineNo">017</span>package com.github.fastcube.factory.tibco.bw.maven.run;<a name="line.17"></a>
+<span class="sourceLineNo">018</span><a name="line.18"></a>
+<span class="sourceLineNo">019</span>import static org.apache.commons.io.FileUtils.copyFile;<a name="line.19"></a>
+<span class="sourceLineNo">020</span><a name="line.20"></a>
+<span class="sourceLineNo">021</span>import java.io.File;<a name="line.21"></a>
+<span class="sourceLineNo">022</span>import java.io.FileInputStream;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import java.io.FileOutputStream;<a name="line.23"></a>
+<span class="sourceLineNo">024</span>import java.io.IOException;<a name="line.24"></a>
+<span class="sourceLineNo">025</span>import java.util.ArrayList;<a name="line.25"></a>
+<span class="sourceLineNo">026</span>import java.util.Properties;<a name="line.26"></a>
+<span class="sourceLineNo">027</span><a name="line.27"></a>
+<span class="sourceLineNo">028</span>import org.apache.maven.plugin.MojoExecutionException;<a name="line.28"></a>
+<span class="sourceLineNo">029</span>import org.apache.maven.plugins.annotations.Execute;<a name="line.29"></a>
+<span class="sourceLineNo">030</span>import org.apache.maven.plugins.annotations.LifecyclePhase;<a name="line.30"></a>
+<span class="sourceLineNo">031</span>import org.apache.maven.plugins.annotations.Mojo;<a name="line.31"></a>
+<span class="sourceLineNo">032</span>import org.apache.maven.plugins.annotations.Parameter;<a name="line.32"></a>
+<span class="sourceLineNo">033</span><a name="line.33"></a>
+<span class="sourceLineNo">034</span>import com.github.fastcube.factory.tibco.bw.maven.AbstractBWMojo;<a name="line.34"></a>
+<span class="sourceLineNo">035</span>import com.github.fastcube.factory.tibco.bw.maven.packaging.ApplicationManagement.SortedProperties;<a name="line.35"></a>
+<span class="sourceLineNo">036</span><a name="line.36"></a>
+<span class="sourceLineNo">037</span>/**<a name="line.37"></a>
+<span class="sourceLineNo">038</span> * &lt;p&gt;<a name="line.38"></a>
+<span class="sourceLineNo">039</span> * This goal launches a TIBCO Designer with exactly the same environment that<a name="line.39"></a>
+<span class="sourceLineNo">040</span> * will be used to compile the TIBCO BusinessWorks EAR from the TIBCO<a name="line.40"></a>
+<span class="sourceLineNo">041</span> * BusinessWorks project sources (with the<a name="line.41"></a>
+<span class="sourceLineNo">042</span> * &lt;a href="./compile-bw-ear-mojo.html"&gt;compile-bw-ear&lt;/a&gt; goal in the<a name="line.42"></a>
+<span class="sourceLineNo">043</span> * &lt;a href="./bwmaven-lifecycles.html#EAR"&gt;compile phase&lt;/a&gt;).<a name="line.43"></a>
+<span class="sourceLineNo">044</span> * &lt;/p&gt;<a name="line.44"></a>
+<span class="sourceLineNo">045</span> * &lt;p&gt;<a name="line.45"></a>
+<span class="sourceLineNo">046</span> * This is made possible by inheriting from {@link AbstractBWMojo} class.<a name="line.46"></a>
+<span class="sourceLineNo">047</span> * &lt;/p&gt;<a name="line.47"></a>
+<span class="sourceLineNo">048</span> * <a name="line.48"></a>
+<span class="sourceLineNo">049</span> * @author Radwane Mabchour<a name="line.49"></a>
+<span class="sourceLineNo">050</span> * <a name="line.50"></a>
+<span class="sourceLineNo">051</span> */<a name="line.51"></a>
+<span class="sourceLineNo">052</span>@Mojo( name="launch-designer", defaultPhase = LifecyclePhase.PROCESS_TEST_RESOURCES )<a name="line.52"></a>
+<span class="sourceLineNo">053</span>@Execute ( phase=LifecyclePhase.PROCESS_TEST_RESOURCES )<a name="line.53"></a>
+<span class="sourceLineNo">054</span>public class LaunchDesignerMojo extends AbstractBWMojo {<a name="line.54"></a>
+<span class="sourceLineNo">055</span><a name="line.55"></a>
+<span class="sourceLineNo">056</span>        protected final static String LAUNCH_DESIGNER_FAILED = "The launch of the TIBCO Designer has failed.";<a name="line.56"></a>
+<span class="sourceLineNo">057</span>        protected final static String LAUNCHING_DESIGNER = "Launching TIBCO Designer...";<a name="line.57"></a>
+<span class="sourceLineNo">058</span>        protected final static String PROJECT_LOCATION = "Project location : ";<a name="line.58"></a>
+<span class="sourceLineNo">059</span><a name="line.59"></a>
+<span class="sourceLineNo">060</span>        /**<a name="line.60"></a>
+<span class="sourceLineNo">061</span>         * If true, the project copied in "target/src" is used by TIBCO Designer.<a name="line.61"></a>
+<span class="sourceLineNo">062</span>         */<a name="line.62"></a>
+<span class="sourceLineNo">063</span>        @Parameter(property="bw.project.use.copy", required=false, defaultValue="false")<a name="line.63"></a>
+<span class="sourceLineNo">064</span>        protected Boolean useBuildSrcDirectory;<a name="line.64"></a>
+<span class="sourceLineNo">065</span>        <a name="line.65"></a>
+<span class="sourceLineNo">066</span>        /**<a name="line.66"></a>
+<span class="sourceLineNo">067</span>         * If true, ".aliaslib" can use parameters such as ${project.version}.<a name="line.67"></a>
+<span class="sourceLineNo">068</span>         */<a name="line.68"></a>
+<span class="sourceLineNo">069</span>        @Parameter(property="bw.project.adapt.aliases", required=false, defaultValue="true")<a name="line.69"></a>
+<span class="sourceLineNo">070</span>        protected Boolean adaptAliases;<a name="line.70"></a>
+<span class="sourceLineNo">071</span><a name="line.71"></a>
+<span class="sourceLineNo">072</span>        /**<a name="line.72"></a>
+<span class="sourceLineNo">073</span>         * This method copies the '.designtimelibs' of the "target/src" directory<a name="line.73"></a>
+<span class="sourceLineNo">074</span>         * to the actual project's source folder<a name="line.74"></a>
+<span class="sourceLineNo">075</span>         * <a name="line.75"></a>
+<span class="sourceLineNo">076</span>         * @throws IOException<a name="line.76"></a>
+<span class="sourceLineNo">077</span>         */<a name="line.77"></a>
+<span class="sourceLineNo">078</span>        private void copyDesignTimeLibs() throws IOException {<a name="line.78"></a>
+<span class="sourceLineNo">079</span>                copyFile(new File(testSrcDirectory + "/" + DTL_FILE_NAME),<a name="line.79"></a>
+<span class="sourceLineNo">080</span>                                 new File(projectDirectory + "/" + DTL_FILE_NAME));<a name="line.80"></a>
+<span class="sourceLineNo">081</span>        }<a name="line.81"></a>
+<span class="sourceLineNo">082</span><a name="line.82"></a>
+<span class="sourceLineNo">083</span>        /**<a name="line.83"></a>
+<span class="sourceLineNo">084</span>         * <a name="line.84"></a>
+<span class="sourceLineNo">085</span>         * <a name="line.85"></a>
+<span class="sourceLineNo">086</span>         * @throws MojoExecutionException<a name="line.86"></a>
+<span class="sourceLineNo">087</span>         * @throws IOException<a name="line.87"></a>
+<span class="sourceLineNo">088</span>         */<a name="line.88"></a>
+<span class="sourceLineNo">089</span>        private void launchDesigner() throws MojoExecutionException, IOException {<a name="line.89"></a>
+<span class="sourceLineNo">090</span>                checkDesigner();<a name="line.90"></a>
+<span class="sourceLineNo">091</span><a name="line.91"></a>
+<span class="sourceLineNo">092</span>                copyDesignTimeLibs();<a name="line.92"></a>
+<span class="sourceLineNo">093</span>                <a name="line.93"></a>
+<span class="sourceLineNo">094</span>                ArrayList&lt;String&gt; arguments = new ArrayList&lt;String&gt;();<a name="line.94"></a>
+<span class="sourceLineNo">095</span>                if (useBuildSrcDirectory) {<a name="line.95"></a>
+<span class="sourceLineNo">096</span>                        arguments.add(buildSrcDirectory.getAbsolutePath()); // using the one in "target/src"<a name="line.96"></a>
+<span class="sourceLineNo">097</span>                        getLog().info(PROJECT_LOCATION + buildSrcDirectory.getAbsolutePath());<a name="line.97"></a>
+<span class="sourceLineNo">098</span>                } else {                        <a name="line.98"></a>
+<span class="sourceLineNo">099</span>                        arguments.add(projectDirectory.getAbsolutePath()); // real BW project path (not the one in "target/src")<a name="line.99"></a>
+<span class="sourceLineNo">100</span>                        getLog().info(PROJECT_LOCATION + projectDirectory.getAbsolutePath());<a name="line.100"></a>
+<span class="sourceLineNo">101</span>                }<a name="line.101"></a>
+<span class="sourceLineNo">102</span><a name="line.102"></a>
+<span class="sourceLineNo">103</span>                getLog().info(LAUNCHING_DESIGNER);<a name="line.103"></a>
+<span class="sourceLineNo">104</span>                <a name="line.104"></a>
+<span class="sourceLineNo">105</span>                ArrayList&lt;File&gt; tras = new ArrayList&lt;File&gt;();<a name="line.105"></a>
+<span class="sourceLineNo">106</span>                tras.add(tibcoDesignerTRAPath);<a name="line.106"></a>
+<span class="sourceLineNo">107</span><a name="line.107"></a>
+<span class="sourceLineNo">108</span>                launchTIBCOBinary(tibcoDesignerPath, tras, arguments, directory, LAUNCH_DESIGNER_FAILED, true, false);<a name="line.108"></a>
+<span class="sourceLineNo">109</span>        }<a name="line.109"></a>
+<span class="sourceLineNo">110</span><a name="line.110"></a>
+<span class="sourceLineNo">111</span>        public void execute() throws MojoExecutionException {<a name="line.111"></a>
+<span class="sourceLineNo">112</span>                enableTestScope();<a name="line.112"></a>
+<span class="sourceLineNo">113</span><a name="line.113"></a>
+<span class="sourceLineNo">114</span>                super.execute();<a name="line.114"></a>
+<span class="sourceLineNo">115</span><a name="line.115"></a>
+<span class="sourceLineNo">116</span>                if (adaptAliases) {<a name="line.116"></a>
+<span class="sourceLineNo">117</span>                        try {<a name="line.117"></a>
+<span class="sourceLineNo">118</span>                                updateAliasesFile();<a name="line.118"></a>
+<span class="sourceLineNo">119</span>                        } catch (IOException e) {<a name="line.119"></a>
+<span class="sourceLineNo">120</span>                                throw new MojoExecutionException(e.getLocalizedMessage(), e);<a name="line.120"></a>
+<span class="sourceLineNo">121</span>                        }<a name="line.121"></a>
+<span class="sourceLineNo">122</span>                }<a name="line.122"></a>
+<span class="sourceLineNo">123</span><a name="line.123"></a>
+<span class="sourceLineNo">124</span>                try {<a name="line.124"></a>
+<span class="sourceLineNo">125</span>                        launchDesigner();<a name="line.125"></a>
+<span class="sourceLineNo">126</span>                } catch (IOException e) {<a name="line.126"></a>
+<span class="sourceLineNo">127</span>                        throw new MojoExecutionException(LAUNCH_DESIGNER_FAILED, e);<a name="line.127"></a>
+<span class="sourceLineNo">128</span>                }<a name="line.128"></a>
+<span class="sourceLineNo">129</span>        }<a name="line.129"></a>
+<span class="sourceLineNo">130</span><a name="line.130"></a>
+<span class="sourceLineNo">131</span>        private void updateAliasesFile() throws IOException {<a name="line.131"></a>
+<span class="sourceLineNo">132</span>                File aliasesFile = getAliasesFile();<a name="line.132"></a>
+<span class="sourceLineNo">133</span>                File designer5Prefs = getDesigner5Prefs();<a name="line.133"></a>
+<span class="sourceLineNo">134</span><a name="line.134"></a>
+<span class="sourceLineNo">135</span>                Properties prefs = new SortedProperties();<a name="line.135"></a>
+<span class="sourceLineNo">136</span>                FileInputStream fisPrefs = new FileInputStream(designer5Prefs);<a name="line.136"></a>
+<span class="sourceLineNo">137</span>                prefs.load(fisPrefs);<a name="line.137"></a>
+<span class="sourceLineNo">138</span>                fisPrefs.close();<a name="line.138"></a>
+<span class="sourceLineNo">139</span>                <a name="line.139"></a>
+<span class="sourceLineNo">140</span>                Integer maxFileAliasPref = 0;<a name="line.140"></a>
+<span class="sourceLineNo">141</span>                for (Object k : prefs.keySet()) {<a name="line.141"></a>
+<span class="sourceLineNo">142</span>                        String key = (String) k;<a name="line.142"></a>
+<span class="sourceLineNo">143</span><a name="line.143"></a>
+<span class="sourceLineNo">144</span>                        if (key.startsWith(FILE_ALIAS_PREFIX)) {<a name="line.144"></a>
+<span class="sourceLineNo">145</span>                                maxFileAliasPref++;<a name="line.145"></a>
+<span class="sourceLineNo">146</span>                        }<a name="line.146"></a>
+<span class="sourceLineNo">147</span>                }<a name="line.147"></a>
+<span class="sourceLineNo">148</span><a name="line.148"></a>
+<span class="sourceLineNo">149</span>                Properties aliases = new Properties();<a name="line.149"></a>
+<span class="sourceLineNo">150</span>                FileInputStream fis = new FileInputStream(aliasesFile);<a name="line.150"></a>
+<span class="sourceLineNo">151</span>                aliases.load(fis);<a name="line.151"></a>
+<span class="sourceLineNo">152</span>                fis.close();<a name="line.152"></a>
+<span class="sourceLineNo">153</span><a name="line.153"></a>
+<span class="sourceLineNo">154</span>                String projectVersion = getProject().getVersion();<a name="line.154"></a>
+<span class="sourceLineNo">155</span>                Properties duplicates = new Properties();<a name="line.155"></a>
+<span class="sourceLineNo">156</span><a name="line.156"></a>
+<span class="sourceLineNo">157</span>                for (Object k : aliases.keySet()) {<a name="line.157"></a>
+<span class="sourceLineNo">158</span>                        String key = (String) k;<a name="line.158"></a>
+<span class="sourceLineNo">159</span>                        String value = aliases.getProperty(key);<a name="line.159"></a>
+<span class="sourceLineNo">160</span>                        if (key.contains(projectVersion) &amp;&amp; key.endsWith(":jar")) {<a name="line.160"></a>
+<span class="sourceLineNo">161</span>                                getLog().debug(key);<a name="line.161"></a>
+<span class="sourceLineNo">162</span>                                key = key.replace(projectVersion, "${project.version}");<a name="line.162"></a>
+<span class="sourceLineNo">163</span>                                duplicates.put(key, value);<a name="line.163"></a>
+<span class="sourceLineNo">164</span>                        }<a name="line.164"></a>
+<span class="sourceLineNo">165</span>                }<a name="line.165"></a>
+<span class="sourceLineNo">166</span>                <a name="line.166"></a>
+<span class="sourceLineNo">167</span>                if (!duplicates.isEmpty()) {<a name="line.167"></a>
+<span class="sourceLineNo">168</span>                        for (Object k : duplicates.keySet()) {<a name="line.168"></a>
+<span class="sourceLineNo">169</span>                                String key = (String) k;<a name="line.169"></a>
+<span class="sourceLineNo">170</span>                                String value = duplicates.getProperty(key);<a name="line.170"></a>
+<span class="sourceLineNo">171</span>                                key = key.replace(TIBCO_ALIAS_PREFIX, "");<a name="line.171"></a>
+<span class="sourceLineNo">172</span>                                <a name="line.172"></a>
+<span class="sourceLineNo">173</span>                                prefs.put(FILE_ALIAS_PREFIX + maxFileAliasPref.toString(), key + "=" + value);<a name="line.173"></a>
+<span class="sourceLineNo">174</span>                                maxFileAliasPref++;<a name="line.174"></a>
+<span class="sourceLineNo">175</span>                        }<a name="line.175"></a>
+<span class="sourceLineNo">176</span><a name="line.176"></a>
+<span class="sourceLineNo">177</span>                        FileOutputStream fosPrefs = new FileOutputStream(designer5Prefs);<a name="line.177"></a>
+<span class="sourceLineNo">178</span>                        prefs.store(fosPrefs, "");<a name="line.178"></a>
+<span class="sourceLineNo">179</span>                        fis.close();<a name="line.179"></a>
+<span class="sourceLineNo">180</span><a name="line.180"></a>
+<span class="sourceLineNo">181</span>                        aliases.putAll(duplicates);<a name="line.181"></a>
+<span class="sourceLineNo">182</span><a name="line.182"></a>
+<span class="sourceLineNo">183</span>                        FileOutputStream fos = new FileOutputStream(aliasesFile);<a name="line.183"></a>
+<span class="sourceLineNo">184</span>                        aliases.store(fos, "");<a name="line.184"></a>
+<span class="sourceLineNo">185</span>                        fis.close();<a name="line.185"></a>
+<span class="sourceLineNo">186</span>                }<a name="line.186"></a>
+<span class="sourceLineNo">187</span>        }<a name="line.187"></a>
+<span class="sourceLineNo">188</span><a name="line.188"></a>
+<span class="sourceLineNo">189</span>}<a name="line.189"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

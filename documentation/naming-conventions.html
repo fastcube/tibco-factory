@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Fastcube TIBCO Factory">
+    <meta name="author" content="Radwane Mabchour">
+    <title>Naming conventions | Fastcube TIBCO Factory</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.css" rel="stylesheet">
+
+    <style>
+      body {
+        position: relative;
+      }
+
+      .sticky-top {
+        top: 56px;
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="../assets/dist/css/styles.css" rel="stylesheet">
+    <link href="../assets/theme/css/prism.css" rel="stylesheet" />
+  </head>
+  <body class="d-flex flex-column" data-spy="scroll" data-target=".sticky-top" data-offset="50">
+    <header id="header">
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">FC TIBCO Factory</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Documentation <span class="sr-only">(current)</span></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="installation.html">Installation</a>
+                  <a class="dropdown-item" href="configuration.html">Configuration</a>
+                  <a class="dropdown-item" href="faq.html">FAQ</a>
+                  <a class="dropdown-item active" href="">Naming conventions</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown"  href="#">Plugins</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="../plugins-versions.html">Plugins list</a>
+                  <a class="dropdown-item" href="../bw-maven-plugin/index.html">bwMaven</a>
+                  <a class="dropdown-item" href="#">bw6CodeReview</a>
+                  <a class="dropdown-item" href="#">bwUnit</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown"  href="#">More <span class="caret"></span></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" target="_blank" href="https://github.com/fastcube">Github repositories</a>
+                  <a class="dropdown-item" href="../about.html">About</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3 font-weight-bold">FastCube TIBCO Factory</h1>
+      <h5>A Factory, not a framework.</h5>
+    </div>
+  </div>
+
+  <nav id="sticky-navbar" class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <div class="container">
+      <ul class="nav navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#nc">Naming conventions</a>
+        </li>&nbsp;
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Maven artifacts in examples</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#crp">Client root project</a>
+            <a class="dropdown-item" href="#cmp">Client main Projlib</a>
+            <a class="dropdown-item" href="#csbwp">Client sample BW project</a>
+            <a class="dropdown-item" href="#jap">Java addon project</a>
+          </div>
+        </li>&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="#cle">Command line examples</a>
+        </li>
+      </ul>
+    </div>
+  </nav><br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 id="nc">Naming Conventions</h1>
+        <hr>
+        <p>In all the documentation of the FC TIBCO Factory and its plugins, the same naming conventions will be used.</p>
+        <p>Especially, the examples will follow the same rules.</p>
+        <h3 id="mvnartifacts">Maven artifacts in examples</h4>
+        <p>We consider that the company using the plugin is called <b>“company”</b>. Thus the default groupId starts with <b>com.company</b>.</p>
+        <p>This company is developing a project called <b>“project”</b>. Finally, the groupId of the project will be <b>com.company.project</b>.</p>
+        <p>We will add <b>bw</b> to this groupId for BusinessWorks related projects. It will enable to create Java projects inside the client project with <b>java</b> at the end of the groupId etc.</p>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title" id="crp">Client root project</h5>
+                <p class="card-text">
+                  <table class="table table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th>groupId</th>
+                        <th>artifactId</th>
+                        <th>version</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>com.company.project</td>
+                        <td>project-root</td>
+                        <td>1.0.0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  Client root project coordinates
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title" id="cmp">Client main Projlib</h5>
+                <p class="card-text">
+                  <table class="table table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th>groupId</th>
+                        <th>artifactId</th>
+                        <th>version</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>com.company.project.bw</td>
+                        <td>common-utils</td>
+                        <td>1.0.0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  Client main Projlib project coordinates
+                </p>
+              </div>
+            </div>
+          </div>
+        </div><br>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title" id="csbwp">Client sample BW project</h5>
+                <p class="card-text">
+                  <table class="table table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th>groupId</th>
+                        <th>artifactId</th>
+                        <th>version</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>com.company.project.bw</td>
+                        <td>my-bw-project</td>
+                        <td>1.0.0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  Client sample BW project coordinates
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title" id="jap">Java addon project</h5>
+                <p class="card-text">
+                  <table class="table table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th>groupId</th>
+                        <th>artifactId</th>
+                        <th>version</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>com.company.project.java</td>
+                        <td>my-java-project</td>
+                        <td>1.0.0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  Client sample Java project coordinates
+                </p>
+              </div>
+            </div>
+          </div>
+        </div><br>
+        <h4 id="cle">Command line examples</h4>
+        <p>When we give command line samples to execute, we will always put them in this quoted format:</p>
+        <pre><code class="language-bash">mvn dependency:copy \
+    -DoutputDirectory=. \
+    -Dartifact=com.github.fastcube.factory.tibco:fc-tibco-factory:2.4.1:pom</code></pre>
+        <p><b>NB:</b> the backslash ‘\’ at the end of line means that the command is not finished and continue on the next line. However when using this command, a single line must be typed.</p>
+      </div>
+    </div>
+    <br>
+  </div><br>
+
+  <footer class="jumbotron">
+    <div class="container">
+      <div class="row clearfix small">
+        <div class="col-sm-3">
+          <h6>DOCUMENTATION</h6>
+          <div class="nav flex-column nav-pills">
+            <a class="nav-link" href="installation.html">Installation</a>
+            <a class="nav-link" href="configuration.html">Configuration</a><br>
+            <a class="nav-link" href="faq.html">FAQ</a>
+            <a class="nav-link active" href="#">Naming conventions</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <h6>PLUGINS</h6>
+          <div class="nav flex-column nav-pills">
+            <a class="nav-link" href="../plugins-versions.html">Plugins list</a><br>
+            <a class="nav-link" href="../bw-maven-plugin/index.html">bwMaven</a>
+            <a class="nav-link" href="#">bw6CodeReview</a>
+            <a class="nav-link" href="#">bwUnit</a>
+          </div>
+        </div>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+          <blockquote class="custom-blockquote">
+            <p><i>FC TIBCO Factory</i> is a modular, plugin-based, full-featured solution to improve development & management of TIBCO applications.</p>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span class="text-muted">Copyright &copy; 2020 Fastcube. All Rights Reserved.</span>
+      <div class="float-right">
+        <a href="#header">back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/theme/js/prism.js"></script>
+  
+  <script src="../assets/dist/js/jquery-3.5.1.min.js"></script>
+  <script src="../assets/dist/js/popper.min.js"></script>
+  <script src="../assets/dist/js/bootstrap.bundle.js"></script>
+</html>

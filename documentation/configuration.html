@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Fastcube TIBCO Factory">
+    <meta name="author" content="Radwane Mabchour">
+    <title>Configuration | Fastcube TIBCO Factory</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.css" rel="stylesheet">
+
+    <style>
+      
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="../assets/dist/css/styles.css" rel="stylesheet">
+    <link href="../assets/theme/css/prism.css" rel="stylesheet" />
+  </head>
+  <body class="d-flex flex-column h-100">
+    <header id="header">
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">FC TIBCO Factory</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Documentation <span class="sr-only">(current)</span></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="installation.html">Installation</a>
+                  <a class="dropdown-item active" href="#">Configuration</a>
+                  <a class="dropdown-item" href="faq.html">FAQ</a>
+                  <a class="dropdown-item" href="naming-conventions.html">Naming conventions</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown"  href="#">Plugins</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="../plugins-versions.html">Plugins list</a>
+                  <a class="dropdown-item" href="../bw-maven-plugin/index.html">bwMaven</a>
+                  <a class="dropdown-item" href="#">bw6CodeReview</a>
+                  <a class="dropdown-item" href="#">bwUnit</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown"  href="#">More <span class="caret"></span></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" target="_blank" href="https://github.com/fastcube">Github repositories</a>
+                  <a class="dropdown-item" href="../about.html">About</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3 font-weight-bold">FastCube TIBCO Factory</h1>
+      <h5>A Factory, not a framework.</h5>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1>Configuration</h1>
+        <hr>
+        <p>The configuration of the <i>FC TIBCO Factory</i> is divided in two parts as any other Maven plugin:</p>
+        <ul>
+          <li>environment-dependent settings, which will basically be stored in the <a href="https://maven.apache.org/settings.html">Maven 'settings.xml' file</a>. These settings are specific for each environment where the <i>FC TIBCO Factory</i> is installed.</li>
+          <li>project-dependent settings, which will be stored in the <a href="https://maven.apache.org/pom.html">POM</a> of the projects. These settings define how to build the projects.</li>
+        </ul>
+        <p>For these both kinds, settings can be:</p>
+        <ul>
+          <li>profile-specific, meaning that only settings in active profiles will be used during builds.</li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <div class="card bg-light">
+          <div class="card-body">
+            <h3 class="card-title font-weight-bold">Default configuration snippets</h3>
+            <p class="card-text">
+              Here are some ready-to-use configuration for the <i>FC TIBCO Factory</i>:
+              <ul>
+                <li><a href="../useful-files/settings-xml.html">settings.xml</a>, a default <a href="https://maven.apache.org/settings.html">Maven settings.html</a> file.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div><br>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Environment-dependent settings</h3>
+        <p>All plugins of the <i>FC TIBCO Factory</i> can share a common Maven <mark>settings.xml</mark> file.</p>
+      </div>
+    </div>
+    <div class="row" id="rootPOM">
+      <div class="col-md-12">
+        <h3>Project-dependent settings (root POM)</h3>
+        <p>For standard Maven projects, there is a <a href="http://maven.apache.org/ref/3.1.1/maven-model-builder/super-pom.html">super POM</a> which defines default properties.</p>
+        <p>In <i>FC TIBCO Factory</i> there is a need for a custom super POM with custom properties called the <b>root POM</b>. The latter can either be created by inheritance from the <i>FC TIBCO Factory</i> super POM or defined <i>in extenso</i> with all required properties by using a Maven archetype.</p>
+        <p><b><i>FC TIBCO Factory</i> plugins can’t be used normally if no root POM is defined.</b></p>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">By inheritance</h5>
+                <p class="card-text">
+                  <ul>
+                    <li>The default properties are defined in the <i>FC TIBCO Factory</i> super POM</li>
+                    <li>This <b>root POM</b> doesn’t have to be created (adding inheritance is enough)</li>
+                    <li>The projects must inherit directly or indirectly from this <b>root POM</b></li>
+                    <li>All projects inherit from default behaviour of the <i>FC TIBCO Factory</i> super POM (good for most cases)</li>
+                  </ul>
+                </p>
+              </div>
+            </div><br>
+            <p>Inheritance can be done by adding this snippet to any POM (making it the <b>root POM</b>):</p>
+<pre><code class="language-xml">&lt;parent&gt;
+  &lt;groupId&gt;com.github.fastcube.factory.tibco&lt;/groupId&gt;
+  &lt;artifactId&gt;fc-tibco-factory&lt;/artifactId&gt;
+  &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/parent&gt;</code></pre><br>
+            <p><b>NB:</b> the inheritance can be used with any <a href="https://maven.apache.org/pom.html#Maven_Coordinates">Maven packaging</a> (including <i>pom, bw-ear, projlib…</i>) so it can be used to quickly set up a stand-alone project while the archetype method is more suited to bigger projects where custom additional behaviours are to be defined.</p>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">By archetype</h5>
+                <p class="card-text">
+                  <ul>
+                    <li>The default properties are defined in an independent <b>root POM</b></li>
+                    <li>This <b>root POM</b> is created with a Maven archetype</li>
+                    <li>The projects must inherit directly or indirectly from this <b>root POM</b></li>
+                    <li>All projects inherit only from the behaviour defined in this independent <b>root POM</b> (full customization)</li>
+                  </ul>
+                </p>
+              </div>
+            </div><br>
+            <p>The independent <b>root POM</b> is created by a Maven archetype with the following command:</p>
+              <pre><code class="language-xml">mvn archetype:generate -DarchetypeGroupId=com.github.fastcube.factory.tibco \
+                        -DarchetypeArtifactId=archetype-default-pom \
+                        -DarchetypeVersion=1.0.0 \
+                        -DgroupId=com.company.project \
+                        -DartifactId=project-root \
+                        -Dversion=1.0.0-SNAPSHOT \
+                        -DprojectName=ProjectName \
+                        -DbwMavenPluginVersion=1.0.0 \
+                        -DcodeReviewPluginVersion=1.0.0 \
+                        -DbwUnitPluginVersion=1.0.0 \
+                        [-DinteractiveMode=false]</code></pre>
+              <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="jumbotron">
+    <div class="container">
+      <div class="row clearfix small">
+        <div class="col-sm-3">
+          <h6>DOCUMENTATION</h6>
+          <div class="nav flex-column nav-pills">
+            <a class="nav-link" href="installation.html">Installation</a>
+            <a class="nav-link active" href="#">Configuration</a><br>
+            <a class="nav-link" href="faq.html">FAQ</a>
+            <a class="nav-link" href="naming-conventions.html">Naming conventions</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <h6>PLUGINS</h6>
+          <div class="nav flex-column nav-pills">
+            <a class="nav-link" href="../plugins-versions.html">Plugins list</a><br>
+            <a class="nav-link" href="../bw-maven-plugin/index.html">bwMaven</a>
+            <a class="nav-link" href="#">bw6CodeReview</a>
+            <a class="nav-link" href="#">bwUnit</a>
+          </div>
+        </div>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+          <blockquote class="custom-blockquote">
+            <p><i>FC TIBCO Factory</i> is a modular, plugin-based, full-featured solution to improve development & management of TIBCO applications.</p>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span class="text-muted">Copyright &copy; 2020 Fastcube. All Rights Reserved.</span>
+      <div class="float-right">
+        <a href="#header">back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/theme/js/prism.js"></script>
+  
+  <script src="../assets/dist/js/jquery-3.5.1.min.js"></script>
+  <!-- <script src="../assets/dist/js/popper.min.js"></script> -->
+  <script src="../assets/dist/js/bootstrap.bundle.js"></script>
+</html>

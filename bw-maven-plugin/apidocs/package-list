@@ -1,0 +1,10 @@
+com.github.fastcube.factory.tibco.bw.maven
+com.github.fastcube.factory.tibco.bw.maven.builtin
+com.github.fastcube.factory.tibco.bw.maven.bwengine
+com.github.fastcube.factory.tibco.bw.maven.compile
+com.github.fastcube.factory.tibco.bw.maven.deployment
+com.github.fastcube.factory.tibco.bw.maven.deployment.batch
+com.github.fastcube.factory.tibco.bw.maven.doc
+com.github.fastcube.factory.tibco.bw.maven.packaging
+com.github.fastcube.factory.tibco.bw.maven.run
+com.github.fastcube.factory.tibco.bw.maven.source

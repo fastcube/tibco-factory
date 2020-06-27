@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Fastcube TIBCO Factory">
+    <meta name="author" content="Radwane Mabchour">
+    <title>Fastcube TIBCO Factory</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/dist/css/bootstrap.css" rel="stylesheet">
+
+    <style>
+      
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="assets/dist/css/styles.css" rel="stylesheet">
+  </head>
+  <body class="d-flex flex-column h-100">
+    <header id="header">
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">FC TIBCO Factory</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Documentation <span class="sr-only">(current)</span></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="documentation/installation.html">Installation</a>
+                  <a class="dropdown-item" href="documentation/configuration.html">Configuration</a>
+                  <a class="dropdown-item" href="documentation/faq.html">FAQ</a>
+                  <a class="dropdown-item" href="documentation/naming-conventions.html">Naming conventions</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown"  href="#">Plugins</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="plugins-versions.html">Plugins list</a>
+                  <a class="dropdown-item" href="bw-maven-plugin/index.html">bwMaven</a>
+                  <a class="dropdown-item" href="#">bw6CodeReview</a>
+                  <a class="dropdown-item" href="#">bwUnit</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown"  href="#">More <span class="caret"></span></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" target="_blank" href="https://github.com/fastcube">Github repositories</a>
+                  <a class="dropdown-item" href="about.html">About</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3 font-weight-bold">FastCube TIBCO Factory</h1>
+      <h5>A Factory, not a framework.</h5>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1>Introduction</h1>
+        <p>The <span class="font-italic"><abbr title="FastCube">FC</abbr> TIBCO Factory</span> is a <mark>software factory</mark> and must not be thought as a framework.</p>
+        <p>It will only give tools to <span class="font-italic">develop, build, package, deploy, manage</span> and <span class="font-italic">monitor</span> TIBCO applications and environments, but no actual implementation of functional or technical services (such as ones found in frameworks: logging feature, generic error handling and so on).</p>
+        <p>However, the <span class="font-italic">FC TIBCO Factory</span> will dramatically improve the development of such a framework!</p>
+        <p>The <span class="font-italic">FC TIBCO Factory</span> is plugin-based and below is a description of <a href="plugins-versions.html">each plugin</a>. Before using a plugin, it is advised to start with <span class="font-italic">FC TIBCO Factory</span> common <a href="documentation/installation.html">installation</a> & <a href="documentation/configuration.html">configuration</a> instructions.</p>
+      </div>
+      <div class="col-md-4">
+        
+      </div>
+    </div><br>
+    <div class="row">
+      <div class="col-md-4">
+        <h2>bwMaven</h2>
+        <p>bwMaven is a Maven plugin enabling a Java-like lifecycle in TIBCO BusinessWorks projects. It includes dependency management, EAR & Projlib compilation, advanced configuration management, delivery package generation and much more.</p>
+        <p><a class="btn btn-secondary" href="bw-maven-plugin/index.html" role="button">View details &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>bw6CodeReview</h2>
+        <p>This Maven plugin will run automatic Code Review on TIBCO BusinessWorks projects. It generates XML/HTML reports of rules passed or failed by the projects and has an open architecture to implement custom rules.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>bwUnit</h2>
+        <p>bwUnit is a Maven plugin enabling a JUnit-like unit tests in TIBCO BusinessWorks projects.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="jumbotron">
+    <div class="container">
+      <div class="row clearfix small">
+        <div class="col-sm-3">
+          <h6>DOCUMENTATION</h6>
+          <div class="nav flex-column nav-pills">
+            <a class="nav-link" href="documentation/installation.html">Installation</a>
+            <a class="nav-link" href="documentation/configuration.html">Configuration</a><br>
+            <a class="nav-link" href="documentation/faq.html">FAQ</a>
+            <a class="nav-link" href="documentation/naming-conventions.html">Naming conventions</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <h6>PLUGINS</h6>
+          <div class="nav flex-column nav-pills">
+            <a class="nav-link" href="plugins-versions.html">Plugins list</a><br>
+            <a class="nav-link" href="bw-maven-plugin/index.html">bwMaven</a>
+            <a class="nav-link" href="#">bw6CodeReview</a>
+            <a class="nav-link" href="#">bwUnit</a>
+          </div>
+        </div>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+          <blockquote class="custom-blockquote">
+            <p><i>FC TIBCO Factory</i> is a modular, plugin-based, full-featured solution to improve development & management of TIBCO applications.</p>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span class="text-muted">Copyright &copy; 2020 Fastcube. All Rights Reserved.</span>
+      <div class="float-right">
+        <a href="#header">back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/dist/js/jquery-3.5.1.min.js"></script>
+  <!-- <script src="assets/dist/js/popper.min.js"></script> -->
+  <script src="assets/dist/js/bootstrap.bundle.js"></script>
+</html>
