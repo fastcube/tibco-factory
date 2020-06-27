@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.github.fastcube.factory.tibco</groupId>
 		<artifactId>archetypes</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	
 	<artifactId>archetype-default-workspace</artifactId>

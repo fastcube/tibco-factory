@@ -4,15 +4,21 @@
 	<parent>
 		<groupId>com.github.fastcube.factory.tibco</groupId>
 		<artifactId>archetypes</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	
-	<artifactId>archetype-default-workspace</artifactId>
+
+	<artifactId>archetype-default-pom</artifactId>
 	<packaging>maven-archetype</packaging>
-	
-	<name>FC TIBCO Factory - Archetypes - Workspace</name>
+
+	<name>FC TIBCO Factory - Archetypes - Default POM with properties scaffolding</name>
 	<description>
-		This archetype creates the default workspace (with BusinessWorks projects, Java projects &amp; delivery project).
+		This archetype will create an independent POM with default properties
+		required by the FC TIBCO Factory plugins.
 	</description>
+
+	<properties>
+		<maven.site.skip>true</maven.site.skip>
+		<maven.site.deploy.skip>true</maven.site.deploy.skip>
+	</properties>
 
 </project>
