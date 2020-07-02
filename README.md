@@ -5,7 +5,7 @@ FastCube TIBCO Factory is composed of several elements:
 
 * bwMaven
 * bwUnit
-* bw6CodeReview
+* bwCodeReview
 
 Requirements
 -------------
