@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Fastcube TIBCO Factory">
+    <meta name="author" content="Radwane Mabchour">
+    <title>bw:copy-bw-sources | bwMaven plugin</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../assets/dist/css/bootstrap.css" rel="stylesheet">
+    <!-- Fontawesome core CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <style>
+      
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="../../assets/dist/css/styles.css" rel="stylesheet">
+    <link href="../../assets/theme/css/prism.css" rel="stylesheet" />
+  </head>
+  <body class="d-flex flex-column h-100">
+    <header id="header">
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="../../index.html">FC TIBCO Factory</a>
+          <a class="navbar-brand" href="#">/</a>
+          <a class="navbar-brand" href="../index.html"><span class="text-info">bwMaven</span> plugin</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Overview <span class="sr-only">(current)</span></a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a class="dropdown-item" href="../index.html">Introducation</a></li>
+                  <li><a class="dropdown-item" href="../plugin-info.html">Goals</a></li>
+                  <li><a class="dropdown-item" href="../plugin-usage.html">Usage</a></li>
+                  <li class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="../plugin-lifecycles.html">Lifecycles</a></li>
+                  <li><a class="dropdown-item" href="../mavenization.html">Mavenization</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown"  href="#">Lifecycle phases</a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a class="dropdown-item" href="../lifecycle-phases/development.html">Development</a></li>
+                  <li><a class="dropdown-item" href="../lifecycle-phases/packaging.html">Packaging</a></li>
+                  <li><a class="dropdown-item" href="../lifecycle-phases/deployment.html">Deployment</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Reports</a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li class="dropdown-submenu">
+                    <a class="dropdown-item dropdown-toggle" href="../reports/project-info/project-info.html">Project Informations</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="../reports/project-info/continuous-integration.html">Continuous Integration</a></li>
+                      <li><a class="dropdown-item" href="../reports/project-info/dependencies.html">Dependencies</a></li>
+                      <li><a class="dropdown-item" href="../reports/project-info/dependency-info.html">Dependency Information</a></li>
+                      <li><a class="dropdown-item" href="../reports/project-info/distribution-management.html">Distribution Management</a></li>
+                      <li><a class="dropdown-item" href="../reports/project-info/issue-tracking.html">Issue Tracking</a></li>
+                      <li><a class="dropdown-item" href="../reports/project-info/project-licence.html">Project Licence</a></li>
+                      <li><a class="dropdown-item" href="../reports/project-info/plugin-management.html">Plugin Management</a></li>
+                      <li><a class="dropdown-item" href="../reports/project-info/project-team.html">Project Team</a></li>
+                      <li><a class="dropdown-item" href="../reports/project-info/source-repository.html">Source Repository</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-submenu">
+                    <a class="dropdown-item dropdown-toggle" href="../reports/project-reports/project-reports.html">Project Reports</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="../plugin-info.html">Plugin Documentation</a></li>
+                      <li><a class="dropdown-item" href="../apidocs/index.html">JavaDocs</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4 font-weight-bold">Maven plugin for <span class="text-info">TIBCO BusinessWorks</span></h1>
+      <h5>Enable Java-like lifecycle management in TIBCO BusinessWorks</h5>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1 class="text-center" id="bw:copy-bw-sources">bw:copy-bw-sources</h1>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <p><b>Full name</b>:</p> 
+        <p>io.github.fastcube.factory.tibco.bw.maven:bw-maven-plugin:1.0.0:copy-bw-sources</p> 
+        <p><b>Description</b>:</p> 
+        <p>This goal copies the TIBCO BusinessWorks project sources to a temporary folder.<br /> These sources will be used to compile a TIBCO BusinessWorks EAR or Projlib from a fresh copy and with potential machine-generated code (for instance for Java Custom Functions).</p> 
+        <p>A builtin goal from Maven is called by this goal with a custom configuration defined in the 'components.xml' file from Plexus. This allows to use the builtin goal bound to a lifecycle phase without adding configuration in POMs.<br /> Please refer to <span class="tt">AbstractWrapperForBuiltinMojo</span> for a full explanation of the lifecycle binding of a builtin Maven plugin.</p> 
+        <p><u>Original goal</u> : <b>org.apache.maven.plugins:maven-resources-plugin:copy-resources</b></p> 
+        <p><b>Attributes</b>:</p>
+        <ul> 
+          <li>Requires a Maven project to be executed.</li> 
+          <li>Executes as an aggregator plugin.</li> 
+          <li>Requires dependency resolution of artifacts in scope: <span class="tt">test</span>.</li> 
+        </ul> 
+        <section id="optional_parameters">
+          <h3 id="Optional_Parameters">Optional Parameters</h3> 
+          <table class="table table-striped table-hover"> 
+          <thead> 
+            <tr> 
+            <th>Name</th> 
+            <th>Type</th> 
+            <th>Since</th> 
+            <th>Description</th> 
+            </tr> 
+          </thead> 
+          <tbody> 
+            <tr> 
+              <tr> 
+                <td><b><a href="#artifactId">artifactId</a></b></td> 
+                <td><span class="tt">String</span></td> 
+                <td><span class="tt">-</span></td> 
+                <td>(no description)<br /><b>User property is</b>: <span class="tt">artifactId</span>.</td> 
+               </tr> 
+               <tr> 
+                <td><b><a href="#configuration">configuration</a></b></td> 
+                <td><span class="tt">Properties</span></td> 
+                <td><span class="tt">-</span></td> 
+                <td>The actual Mojo configuration found in the Plexus 'components.xml' file. 
+                <pre><code class="language-xml">&lt;component&gt;
+    &lt;role&gt;org.apache.maven.plugin.Mojo&lt;/role&gt;
+    &lt;role-hint&gt;default-copy-bw-sources&lt;/role-hint&gt;
+    &lt;implementation&gt;io.github.fastcube.factory.tibco.bw.maven.builtin.CopyBWSourcesMojo&lt;/implementation&gt;
+    &lt;isolated-realm&gt;false&lt;/isolated-realm&gt;
+    &lt;configuration&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;
+        &lt;version&gt;2.6&lt;/version&gt;
+        &lt;goal&gt;copy-resources&lt;/goal&gt;
+        &lt;resources&gt;
+            &lt;resource&gt;
+                &lt;directory&gt;${bw.project.location}&lt;/directory&gt;
+                &lt;filtering&gt;true&lt;/filtering&gt;
+                &lt;excludes&gt;
+                    &lt;exclude&gt;**/*TestSuite/&lt;/exclude&gt; &lt;!-- exclude FCUnit TestSuites       --&amp;gt:
+                &lt;/excludes&gt;
+            &lt;/resource&gt;
+        &lt;/resources&gt;
+        &lt;configuration&gt;
+            &lt;property&gt;
+                &lt;name&gt;outputDirectory&lt;/name&gt;
+                &lt;value&gt;${project.build.directory}/src&lt;/value&gt;
+            &lt;/property&gt;
+        &lt;/configuration&gt;
+    &lt;/configuration&gt;
+    &lt;requirements&gt;
+        &lt;requirement&gt;
+            &lt;role&gt;org.apache.maven.plugin.BuildPluginManager&lt;/role&gt;
+            &lt;role-hint /&gt;
+            &lt;field-name&gt;pluginManager&lt;/field-name&gt;
+        &lt;/requirement&gt;
+    &lt;/requirements&gt;
+&lt;/component&gt;</code></pre>
+              </td> 
+             </tr> 
+             <tr> 
+              <td><b><a href="#enterpriseArchiveName">enterpriseArchiveName</a></b></td> 
+              <td><span class="tt">String</span></td> 
+              <td><span class="tt">-</span></td> 
+              <td>(no description)<br /><b>Default value is</b>: <span class="tt">${project.artifactId}</span>.<br /><b>User property is</b>: <span class="tt">bw.container.merged.enterprise.archive.name</span>.</td> 
+             </tr> 
+             <tr> 
+              <td><b><a href="#goal">goal</a></b></td> 
+              <td><span class="tt">String</span></td> 
+              <td><span class="tt">-</span></td> 
+              <td>(no description)<br /><b>User property is</b>: <span class="tt">goal</span>.</td> 
+             </tr> 
+             <tr> 
+              <td><b><a href="#groupId">groupId</a></b></td> 
+              <td><span class="tt">String</span></td> 
+              <td><span class="tt">-</span></td> 
+              <td>(no description)<br /><b>User property is</b>: <span class="tt">groupId</span>.</td> 
+             </tr> 
+             <tr> 
+              <td><b><a href="#processArchiveName">processArchiveName</a></b></td> 
+              <td><span class="tt">String</span></td> 
+              <td><span class="tt">-</span></td> 
+              <td>(no description)<br /><b>Default value is</b>: <span class="tt">${project.artifactId}</span>.<br /><b>User property is</b>: <span class="tt">bw.container.merged.process.archive.name</span>.</td> 
+             </tr> 
+             <tr> 
+              <td><b><a href="#resources">resources</a></b></td> 
+              <td><span class="tt">List</span></td> 
+              <td><span class="tt">-</span></td> 
+              <td>Optional resources parameter do define includes/excludes filesets<br /></td> 
+             </tr> 
+             <tr> 
+              <td><b><a href="#version">version</a></b></td> 
+              <td><span class="tt">String</span></td> 
+              <td><span class="tt">-</span></td> 
+              <td>(no description)<br /><b>User property is</b>: <span class="tt">version</span>.</td> 
+             </tr> 
+          </tbody> 
+          </table>
+        </section>
+        <section id="parameter_details">
+          <h3 id="Parameter_Details">Parameter Details</h3> 
+          <p><b><a name="artifactId">artifactId</a>:</b></p> 
+          <p>
+            (no description) 
+          </p> 
+          <ul> 
+          <li><b>Type</b>: <span class="tt">java.lang.String</span></li> 
+          <li><b>Required</b>: <span class="tt">No</span></li> 
+          <li><b>User Property</b>: <span class="tt">artifactId</span></li> 
+          </ul> 
+          <hr /> 
+          <p><b><a name="configuration">configuration</a>:</b></p> 
+          <p>
+            The actual Mojo configuration found in the Plexus 'components.xml' file. 
+            <pre><code class="language-xml">&lt;component&gt;
+    &lt;role&gt;org.apache.maven.plugin.Mojo&lt;/role&gt;
+    &lt;role-hint&gt;default-copy-bw-sources&lt;/role-hint&gt;
+    &lt;implementation&gt;io.github.fastcube.factory.tibco.bw.maven.builtin.CopyBWSourcesMojo&lt;/implementation&gt;
+    &lt;isolated-realm&gt;false&lt;/isolated-realm&gt;
+    &lt;configuration&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;
+        &lt;version&gt;2.6&lt;/version&gt;
+        &lt;goal&gt;copy-resources&lt;/goal&gt;
+        &lt;resources&gt;
+            &lt;resource&gt;
+                &lt;directory&gt;${bw.project.location}&lt;/directory&gt;
+                &lt;filtering&gt;true&lt;/filtering&gt;
+                &lt;excludes&gt;
+                    &lt;exclude&gt;**/*TestSuite/&lt;/exclude&gt; &lt;!-- exclude FCUnit TestSuites       --&amp;gt:
+                &lt;/excludes&gt;
+            &lt;/resource&gt;
+            &lt;/resources&gt;
+            &lt;configuration&gt;
+                &lt;property&gt;
+                    &lt;name&gt;outputDirectory&lt;/name&gt;
+                    &lt;value&gt;${project.build.directory}/src&lt;/value&gt;
+                &lt;/property&gt;
+            &lt;/configuration&gt;
+    &lt;/configuration&gt;
+    &lt;requirements&gt;
+        &lt;requirement&gt;
+            &lt;role&gt;org.apache.maven.plugin.BuildPluginManager&lt;/role&gt;
+            &lt;role-hint /&gt;
+            &lt;field-name&gt;pluginManager&lt;/field-name&gt;
+        &lt;/requirement&gt;
+    &lt;/requirements&gt;
+&lt;/component&gt;</code></pre>
+          </p> 
+          <ul> 
+            <li><b>Type</b>: <span class="tt">java.util.Properties</span></li> 
+            <li><b>Required</b>: <span class="tt">No</span></li> 
+           </ul> 
+           <hr /> 
+           <p><b><a name="enterpriseArchiveName">enterpriseArchiveName</a>:</b></p> 
+           <p>
+             (no description) 
+           </p> 
+           <ul> 
+            <li><b>Type</b>: <span class="tt">java.lang.String</span></li> 
+            <li><b>Required</b>: <span class="tt">No</span></li> 
+            <li><b>User Property</b>: <span class="tt">bw.container.merged.enterprise.archive.name</span></li> 
+            <li><b>Default</b>: <span class="tt">${project.artifactId}</span></li> 
+           </ul> 
+           <hr /> 
+           <p><b><a name="goal">goal</a>:</b></p> 
+           <p>
+             (no description) 
+           </p> 
+           <ul> 
+            <li><b>Type</b>: <span class="tt">java.lang.String</span></li> 
+            <li><b>Required</b>: <span class="tt">No</span></li> 
+            <li><b>User Property</b>: <span class="tt">goal</span></li> 
+           </ul> 
+           <hr /> 
+           <p><b><a name="groupId">groupId</a>:</b></p> 
+           <p>
+             (no description) 
+           </p> 
+           <ul> 
+            <li><b>Type</b>: <span class="tt">java.lang.String</span></li> 
+            <li><b>Required</b>: <span class="tt">No</span></li> 
+            <li><b>User Property</b>: <span class="tt">groupId</span></li> 
+           </ul> 
+           <hr /> 
+           <p><b><a name="processArchiveName">processArchiveName</a>:</b></p> 
+           <p>
+             (no description) 
+           </p> 
+           <ul> 
+            <li><b>Type</b>: <span class="tt">java.lang.String</span></li> 
+            <li><b>Required</b>: <span class="tt">No</span></li> 
+            <li><b>User Property</b>: <span class="tt">bw.container.merged.process.archive.name</span></li> 
+            <li><b>Default</b>: <span class="tt">${project.artifactId}</span></li> 
+           </ul> 
+           <hr /> 
+           <p><b><a name="resources">resources</a>:</b></p> 
+           <p>
+             Optional resources parameter do define includes/excludes filesets 
+           </p> 
+           <ul> 
+            <li><b>Type</b>: <span class="tt">java.util.List</span></li> 
+            <li><b>Required</b>: <span class="tt">No</span></li> 
+           </ul> 
+           <hr /> 
+           <p><b><a name="version">version</a>:</b></p> 
+           <p>
+             (no description) 
+           </p> 
+           <ul> 
+            <li><b>Type</b>: <span class="tt">java.lang.String</span></li> 
+            <li><b>Required</b>: <span class="tt">No</span></li> 
+            <li><b>User Property</b>: <span class="tt">version</span></li> 
+           </ul> 
+        </section>
+      </div>
+    </div><br>
+  </div><br>
+
+  <footer class="jumbotron">
+    <div class="container">
+      <div class="row clearfix small">
+        <div class="col-sm-3">
+          <h6>OVERVIEW</h6>
+          <div class="nav flex-column nav-pills">
+            <a class="nav-link" href="../index.html">Introduction</a>
+            <a class="nav-link" href="../plugin-info.html">Goals</a>
+            <a class="nav-link" href="../plugin-usage.html">Usage</a><br />
+            <a class="nav-link" href="../plugin-lifecycles.html">Lifecycles</a>
+            <a class="nav-link" href="../mavenization.html">Mavenization</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <h6>LIFECYCLE PHASES</h6>
+          <div class="nav flex-column nav-pills">
+            <a class="nav-link" href="../lifecycle-phases/development.html">Development</a>
+            <a class="nav-link" href="../lifecycle-phases/packaging.html">Packaging</a>
+            <a class="nav-link" href="../lifecycle-phases/deployment.html">Deployment</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <h6>REPORTS</h6>
+          <div class="nav flex-column nav-pills">
+            <a class="nav-link" href="../reports/project-info/project-info.html">Project Informations <i class="fas fa-caret-right"></i></a>
+            <a class="nav-link" href="../reports/project-reports/project-reports.html">Project Reports <i class="fas fa-caret-right"></i></a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <blockquote class="custom-blockquote">
+            <p><i>bwMaven</i> (part of the <i>FC TIBCO Factory</i>) is a lifecycle management tool for TIBCO BusinessWorks based on <a href="http://maven.apache.org/">Maven</a></p>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span class="text-muted">Copyright &copy; 2020 Fastcube. All Rights Reserved.</span>
+      <div class="float-right">
+        <a href="#header">back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/theme/js/prism.js"></script>
+
+  <script src="../../assets/dist/js/jquery-3.5.1.min.js"></script>
+  <!-- <script src="assets/dist/js/popper.min.js"></script> -->
+  <script src="../../assets/dist/js/bootstrap.bundle.js"></script>
+</html>

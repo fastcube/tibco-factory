@@ -91,3 +91,7 @@ code {
 #lifecyle img {
   max-width: 100%;
 }
+
+.tt {
+  font-family:'Lucida Console', monospace;
+}
